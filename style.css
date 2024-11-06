@@ -1,0 +1,202 @@
+.kanit-medium {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.josefin-sans{
+    font-family: "Josefin-Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.noto-sans-jp{
+    font-family: "Noto Sans JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* 設定全域樣式 */
+body {
+    font-family: Arial, sans-serif, Noto Sans JP;
+    color: #D9D9D9; /* 文字顏色 */
+    margin: 0;
+    padding: 0;
+    background-color: #0D0D0D;
+}
+
+h1 {
+    font-size: 10vw; /* 設定字型大小相對於視口寬度 */
+    text-align: center; /* 文字居中 */
+    margin: 0; /* 去掉外邊距 */
+    position: absolute;
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 精確居中 */
+    width: 100vw; /* 佔據全螢幕寬度 */
+    height: 100vh; /* 佔據全螢幕高度 */
+    display: flex;
+    justify-content: center; /* 保證文字居中 */
+    align-items: center; /* 保證文字居中 */
+    color: #D9D9D9; /* 文字顏色 */
+    background-color: #0D0D0D; /* 背景顏色 */
+    font-family: Josefin Sans;
+    letter-spacing: .2em; /* 設定字母間距，調整加寬效果 */
+    word-spacing: 0.3em; /* 設定英文單字間的距離 */
+
+}
+
+/* 水平三點按鈕樣式，固定在右上角 */
+.menu-icon {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+    color: #D9D9D9;
+    transition: opacity 0.4s ease-in-out; /* 添加過渡效果 */
+    transition: color 0.4s ease; /* 漸進的顏色變化 */
+}
+
+.menu-icon:hover {
+    color: #96D932; 
+}
+
+
+/* 隱藏三個點的樣式 */
+.menu-icon.hide {
+    opacity: 0;
+}
+
+/* 隱藏選單樣式 */
+.dropdown-menu {
+    position: fixed; /* 固定在畫面右上角 */
+    top: 1rem;
+    right: 1rem;
+    width: 25vw; /* 25% 視窗寬度 */
+    height: 50vh; /* 高度設置為視窗的一半 */
+    background-color: #333;
+    border-radius: 8px;
+    opacity: 0; /* 初始為完全透明 */
+    transform: scale(0); /* 初始縮小為 0 */
+    transform-origin: top right; /* 以右上角為縮放中心 */
+    transition: opacity 0.4s ease-in, transform 0.4s ease-out; /* 平滑過渡效果 */
+    overflow: hidden;
+    padding: 5rem 0 10rem 3rem; /* 上下有更多的內邊距 */
+}
+
+/* 選單顯示樣式 */
+.dropdown-menu.show {
+    opacity: 1; /* 顯示時不透明 */
+    transform: scale(1); /* 放大到正常大小 */
+}
+
+/* 調整選單內部項目樣式 */
+.dropdown-menu ul {
+    font-family: Kanit;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    height: 100%; /* 確保選單內部高度充滿 */
+    display: flex;
+    flex-direction: column; /* 垂直排列項目 */
+    justify-content: space-evenly; /* 項目均勻分佈 */
+}
+
+.dropdown-menu ul li {
+    /*margin: 1rem 0;*/ /* 增加項目間距 */
+}
+
+/* Menu item link style */
+.dropdown-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+    transition: color 0.4s ease; /* 漸進的顏色變化 */
+}
+
+/* Hover effect for menu item text */
+.dropdown-menu ul li a:hover {
+    color: #96D932; 
+}
+
+
+/* 關閉按鈕樣式，位於選單右上角 */
+.close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: 1001; 
+    transition: color 0.4s ease;
+}
+
+/* 使用::before和::after創建兩條筆畫 */
+.close-btn::before,
+.close-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.4s ease, width 0.4s ease;
+    transform-origin: center;
+    border-radius: 2px;
+    transform: translate(-50%, -50%); /* 讓兩條筆畫定位在按鈕的中間 */    
+
+}
+
+/* 初始筆畫為水平排列 */
+.close-btn::before {
+    transform: translate(-50%, -50%) rotate(0deg);
+    
+}
+
+.close-btn::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+    
+}
+
+/* 當選單顯示時，筆畫變化 */
+.dropdown-menu.show .close-btn::before {
+    transform: translate(-50%, -50%) rotate(45deg); /* 上筆畫旋轉45度 */
+    width: 2rem; /* 擴展筆畫寬度 */
+}
+
+.dropdown-menu.show .close-btn::after {
+    transform: translate(-50%, -50%) rotate(-45deg); /* 下筆畫旋轉-45度 */
+    width: 2rem; /* 擴展筆畫寬度 */
+    transition: color 0.4s ease;
+}
+
+.close-btn:hover::before,
+.close-btn:hover::after {
+    background-color: #96D932; /* 改變筆畫顏色 */
+    transition: background-color 0.4s ease-in-out; /* 顏色過渡 */
+}
+
+
+
+/* 設定滑鼠指標的樣式 */
+.cursor {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #F20505, #96D932);
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
