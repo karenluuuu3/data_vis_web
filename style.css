@@ -18,14 +18,60 @@
     font-style: normal;
 }
 
+.noto-serif-jp{
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.vollkorn{
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* 使用 ::selection 改變選取文字的顏色 */
+::selection {
+    background-color: #96D932;  /* 文字被選取時的背景顏色 */
+    color: #0D0D0D;  /* 文字顏色 */
+}
+
+/* 支援不同瀏覽器的選取效果 */
+::-moz-selection {
+    background-color: #96D932;
+    color: #0D0D0D;
+}
+
+::-webkit-selection {
+    background-color: #96D932;
+    color: #0D0D0D;
+}
+
+
+
 
 /* 設定全域樣式 */
 body {
-    font-family: Arial, sans-serif, Noto Sans JP;
+    font-family: Noto Sans JP;
     color: #D9D9D9; /* 文字顏色 */
+    height: 100%;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;  /* 垂直排列 */
     background-color: #0D0D0D;
+    white-space: pre-line;/*文字換行*/
+
+    /*換頁*/
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    
+}
+
+body.fade-in {
+    opacity: 1;
 }
 
 h1 {
@@ -33,7 +79,7 @@ h1 {
     text-align: center; /* 文字居中 */
     margin: 0; /* 去掉外邊距 */
     position: absolute;
-    top: 50%; /* 垂直居中 */
+    top: 45%; /* 垂直居中 */
     left: 50%; /* 水平居中 */
     transform: translate(-50%, -50%); /* 精確居中 */
     width: 100vw; /* 佔據全螢幕寬度 */
@@ -42,14 +88,44 @@ h1 {
     justify-content: center; /* 保證文字居中 */
     align-items: center; /* 保證文字居中 */
     color: #D9D9D9; /* 文字顏色 */
-    background-color: #0D0D0D; /* 背景顏色 */
-    font-family: Josefin Sans;
     letter-spacing: .2em; /* 設定字母間距，調整加寬效果 */
     word-spacing: 0.3em; /* 設定英文單字間的距離 */
-
 }
 
-/* 水平三點按鈕樣式，固定在右上角 */
+h2{
+    font-size: 1vw; 
+    text-align: center; /* 文字居中 */
+    margin: 0; /* 去掉外邊距 */
+    position: absolute;
+    top: 80%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 精確居中 */
+    width: 100vw; /* 佔據全螢幕寬度 */
+    height: 100vh; /* 佔據全螢幕高度 */
+    display: flex;
+    justify-content: center; /* 保證文字居中 */
+    align-items: center; /* 保證文字居中 */
+    color: #D9D9D9; /* 文字顏色 */
+    letter-spacing: .2em; /* 設定字母間距，調整加寬效果 */
+    word-spacing: 0.3em; /* 設定英文單字間的距離 */
+}
+
+.content {
+    margin: 10% ;
+    min-height: 100vh; /* 設定最小高度，使內容區域大於視窗高度，確保能滾動 */
+    flex: 1;  /* 這會使內容區域填充頁面剩餘空間 */
+}
+
+
+p {
+    font-size: 1.2em;
+    line-height: 2;
+    margin-top: 50%;
+    color:#D9D9D9;
+    text-align: center;
+}
+
+
 .menu-icon {
     position: fixed;
     top: 1.5rem;
@@ -57,22 +133,20 @@ h1 {
     font-size: 2rem;
     cursor: pointer;
     z-index: 1000;
-    color: #D9D9D9;
+    color: #96D932;
     transition: opacity 0.4s ease-in-out; /* 添加過渡效果 */
     transition: color 0.4s ease; /* 漸進的顏色變化 */
 }
 
 .menu-icon:hover {
-    color: #96D932; 
+    color: #F20505; 
 }
 
 
-/* 隱藏三個點的樣式 */
 .menu-icon.hide {
     opacity: 0;
 }
 
-/* 隱藏選單樣式 */
 .dropdown-menu {
     position: fixed; /* 固定在畫面右上角 */
     top: 1rem;
@@ -86,19 +160,18 @@ h1 {
     transform-origin: top right; /* 以右上角為縮放中心 */
     transition: opacity 0.4s ease-in, transform 0.4s ease-out; /* 平滑過渡效果 */
     overflow: hidden;
-    padding: 5rem 0 10rem 3rem; /* 上下有更多的內邊距 */
+    padding: 1rem 0 10rem 3rem; /* 上下有更多的內邊距 */
+    z-index: 100000;
 }
 
-/* 選單顯示樣式 */
 .dropdown-menu.show {
     opacity: 1; /* 顯示時不透明 */
     transform: scale(1); /* 放大到正常大小 */
 }
 
-/* 調整選單內部項目樣式 */
 .dropdown-menu ul {
     font-family: Kanit;
-    list-style: none;
+    list-style:none;
     padding: 0;
     margin: 0;
     text-align: left;
@@ -116,7 +189,7 @@ h1 {
 .dropdown-menu ul li a {
     color: white;
     text-decoration: none;
-    font-size: 2em;
+    font-size: 1em;
     transition: color 0.4s ease; /* 漸進的顏色變化 */
 }
 
@@ -188,15 +261,214 @@ h1 {
 
 
 
-/* 設定滑鼠指標的樣式 */
+.word-cloud {
+    position: relative;
+    width: 600px; /* 調整寬度 */
+    height: 400px; /* 調整高度 */
+    border-radius: 50%; /* 橢圓效果 */
+    transform: translate(50vh, 0); 
+    z-index: 10000;
+    cursor: none;
+}
+.word {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-family: Vollkorn;
+}
+
+.word:hover {
+    color: var(--hover-color, #96D932);
+    transform: translate(var(--move-x), var(--move-y)); /* 滑鼠懸停時，文字會根據隨機方向移動 */
+    z-index: 1; /* 確保懸停的字會在其他字的上層 */
+}
+
+
+
+
+footer {
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    min-height: 60px;
+}
+
 .cursor {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    position: fixed; /* 使用 fixed 保證它不會受頁面滾動影響 */
+    pointer-events: none; /* 讓游標不會干擾到其他元素的點擊事件 */
+    z-index: 1;
+    width: 35px; 
+    height: 35px; 
+    border-radius: 50%; 
     background: linear-gradient(45deg, #F20505, #96D932);
-    position: fixed;
-    pointer-events: none;
+    transform: translate(-50%, -50%); /* 確保游標位於鼠標位置的中心 */
+    transition: transform 0.3s ease-out; /* 添加平滑過渡效果 */
+}
+
+/* 整體容器，居中並隱藏滾動 */
+.scroll-indicator {
+    position: absolute;
+    margin-top: 30%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 9999;
-    transition: all 0.3s ease;
+    text-align: center;
+    pointer-events: none; /* 防止遮擋到其他元素的點擊 */
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards, bounce 2s ease-in-out infinite; /* 淡入並持續彈跳 */
+  }
+  
+  
+  /* 文字樣式 */
+  .text {
+    display: block;
+    font-size: 18px;
+    color: #96D932;
+    margin-top: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeInText 1s ease-in-out 1s forwards, textPulse 2s ease-in-out infinite; /* 文字淡入並脈動 */
+    font-family: Vollkorn;
+    transform: rotate(90deg); /* 旋轉文字使其垂直 */
+  }
+  
+  
+  @keyframes fadeInText {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  } 
+  
+  
+  
+  
+
+
+ /* RWD 調整 */
+/* 手機尺寸 */
+@media screen and (max-width: 600px) {
+    header {
+        /*font-size: 1.5em;
+        padding: 10px;*/
+    }
+
+    /*
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+        */
+
+    h2{
+        font-size: 2.5vw; /* 設定字型大小相對於視口寬度 */
+        top: 65vh; /* 垂直居中 */
+    }
+
+    .content {
+        margin-top: 65%;
+    }
+        
+
+    .dropdown-menu {
+        position: fixed; /* 固定在畫面右上角 */
+        top: 1rem;
+        right: 1rem;
+
+        width: 90vw; 
+        height: 50vh; 
+
+        padding: 5rem 0 10rem 0; /* 上下有更多的內邊距 */
+    }
+
+    .dropdown-menu ul li a {
+        font-size: 2em;
+    }
+
+    .dropdown-menu ul {
+        text-align: center;
+    }
+
+    .word-cloud {
+        width: 40vw;  /* 當螢幕寬度小於 768px 時，橢圓形變大 */
+        height: 30vh; /* 調整高度 */
+    }
+
+    .word {
+        font-size: 16px;
+    }
+
+
+    .scroll-indicator {
+        margin-top: 50%;
+    }
+    /* 文字樣式 */
+    .text {
+        font-size: 14px;
+    }
+    
+
+}
+
+/* 平板尺寸 */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    header {
+        font-size: 1.8em;
+        padding: 15px;
+    }
+
+    .dropdown-menu {
+        top: 1rem;
+        right: 1rem;
+
+        width: 25vw; /*80vw*/
+        height: 50vh; /*vh*/
+
+        padding: 1rem 5rem 13rem 3rem; /* 上下有更多的內邊距 */
+        
+    }
+
+
+    .content {
+        margin-top: 50%;
+    }
+}
+
+/* 桌面尺寸 */
+@media screen and (min-width: 901px) {
+    header {
+        font-size: 2em;
+        padding: 20px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    nav ul {
+        justify-content: space-evenly;
+    }
+
+    footer {
+        position: relative;
+    }
 }
