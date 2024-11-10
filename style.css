@@ -50,8 +50,6 @@
 }
 
 
-
-
 /* 設定全域樣式 */
 body {
     font-family: Noto Sans JP;
@@ -82,8 +80,8 @@ h1 {
     top: 45%; /* 垂直居中 */
     left: 50%; /* 水平居中 */
     transform: translate(-50%, -50%); /* 精確居中 */
-    width: 100vw; /* 佔據全螢幕寬度 */
-    height: 100vh; /* 佔據全螢幕高度 */
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center; /* 保證文字居中 */
     align-items: center; /* 保證文字居中 */
@@ -100,27 +98,110 @@ h2{
     top: 80%; /* 垂直居中 */
     left: 50%; /* 水平居中 */
     transform: translate(-50%, -50%); /* 精確居中 */
-    width: 100vw; /* 佔據全螢幕寬度 */
-    height: 100vh; /* 佔據全螢幕高度 */
-    display: flex;
     justify-content: center; /* 保證文字居中 */
+    width: 100vw; 
+    height: 100vh;
+    display: flex;
     align-items: center; /* 保證文字居中 */
     color: #D9D9D9; /* 文字顏色 */
     letter-spacing: .2em; /* 設定字母間距，調整加寬效果 */
     word-spacing: 0.3em; /* 設定英文單字間的距離 */
 }
 
-.content {
-    margin: 10% ;
-    min-height: 100vh; /* 設定最小高度，使內容區域大於視窗高度，確保能滾動 */
-    flex: 1;  /* 這會使內容區域填充頁面剩餘空間 */
+.content_1{
+    margin-top: 50%; 
+    padding:20px; 
+    background-color: #96D932; 
+}
+
+.content_1 p{
+    color:#0D0D0D;
+    font-size: 20px;
+}
+
+.content_2{
+    margin-top: 10%; 
+    display: flex;
+    flex-direction: column; /* 使內容從上到下排列 */
+    align-items: center; /* 置中對齊 */
+    text-align: center; /* 文字置中 */
+}
+
+.content_2 p{
+    font-size: 20px;
+    line-height: 1.5em;
+
+}
+
+  
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+margin-top: 40%;
+}
+
+.images {
+display: flex;
+flex-wrap: wrap; /* 讓內容在需要時換行 */
+justify-content: space-between;
+align-items: center;
+width: 100%;
+max-width: 1200px;
+gap: 10px; /* 增加間距確保空間 */
+}
+
+.side-image {
+max-width: 30%; /* 控制圖片寬度 */
+width: auto;
+height: auto;
+clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%); /* 梯形剪裁 */
+}
+
+.side-image.left {
+clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%); /* 左側梯形 */
+}
+
+.side-image.right {
+clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%); /* 右側梯形 */
 }
 
 
+.middle_text {
+flex: 1; /* 文字段落擴展佔用空間 */
+text-align: center;
+margin: 0 20px; /* 確保文字不貼邊 */
+}
+
+
+.container2 {
+margin: 5% 10% 5% 10%;
+display: flex;
+justify-content: space-between;
+align-items: center; /* 使內容垂直置中 */
+}
+
+.text-section {
+flex: 1;
+display: flex;
+justify-content: center; /* 文字水平置中 */
+margin: 5%;
+}
+
+.image-section {
+flex: 2;
+}
+
+img {
+width: 100%; /* 圖片自適應容器大小 */
+height: auto;
+}
+
+  
 p {
     font-size: 1.2em;
-    line-height: 2;
-    margin-top: 50%;
+    line-height: 1.5;
     color:#D9D9D9;
     text-align: center;
 }
@@ -259,17 +340,17 @@ p {
     transition: background-color 0.4s ease-in-out; /* 顏色過渡 */
 }
 
-
-
 .word-cloud {
     position: relative;
+    margin: 10%;
     width: 600px; /* 調整寬度 */
     height: 400px; /* 調整高度 */
     border-radius: 50%; /* 橢圓效果 */
-    transform: translate(50vh, 0); 
+    transform: translate(25vh, 0); 
     z-index: 10000;
     cursor: none;
 }
+
 .word {
     position: relative;
     display: inline-block;
@@ -285,14 +366,29 @@ p {
 }
 
 
-
-
 footer {
     font-size: 12px;
     position: relative;
     text-align: center;
     padding: 10px;
     min-height: 60px;
+    margin-top: 1%;
+}
+
+/* 設定banner圖片 */
+.footer-banner {
+    margin-top: 20%;
+    width: 100%;
+    height: 200px; /* 根據需求調整高度 */
+    bottom: 0;
+    left: 0;
+}
+
+/* 自動縮放圖片來適應整個banner */
+.footer-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 使圖片覆蓋整個區域，保持比例 */
 }
 
 .cursor {
@@ -307,7 +403,6 @@ footer {
     transition: transform 0.3s ease-out; /* 添加平滑過渡效果 */
 }
 
-/* 整體容器，居中並隱藏滾動 */
 .scroll-indicator {
     position: absolute;
     margin-top: 30%;
@@ -315,9 +410,25 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+
     pointer-events: none; /* 防止遮擋到其他元素的點擊 */
     opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards, bounce 2s ease-in-out infinite; /* 淡入並持續彈跳 */
+    animation: fadeIn 1s ease-in-out forwards, bounce 2s ease-in-out infinite;
+  }
+
+  /* 自定義橫線的樣式 */
+.styled-line {
+    border: 0;
+    border-top: 2px solid #96D932; /* 番茄紅色的橫線 */
+    width: 50%; /* 讓橫線寬度為畫面一半 */
+    margin: 20px auto; /* 垂直間隔20px，並且居中 */
+    opacity: 0.7; /* 讓橫線有點透明感 */
+    transition: all 0.3s ease; /* 加入過渡效果 */
+  }
+  
+  .styled-line:hover {
+    width: 100%; /* 滑鼠懸停時，橫線會變得更寬 */
+    opacity: 1; /* 滑鼠懸停時不再透明 */
   }
   
   
@@ -330,13 +441,14 @@ footer {
     font-weight: bold;
     letter-spacing: 1px;
     opacity: 0;
-    animation: fadeInText 1s ease-in-out 1s forwards, textPulse 2s ease-in-out infinite; /* 文字淡入並脈動 */
+    animation: fadeInText 1s ease-in-out 1s forwards, textPulse 2s ease-in-out infinite;
     font-family: Vollkorn;
     transform: rotate(90deg); /* 旋轉文字使其垂直 */
   }
   
   
-  @keyframes fadeInText {
+/* 文字淡入 */
+@keyframes fadeInText {
     0% {
       opacity: 0;
     }
@@ -344,8 +456,18 @@ footer {
       opacity: 1;
     }
   }
-
   
+  /* 文字顏色變化動畫，呼吸感 */
+  @keyframes textPulse {
+    0%, 100% {
+      color: #fff;
+    }
+    50% {
+      color: #96D932; /* 番茄紅色 */
+    }
+  }
+  
+  /* 整體淡入動畫 */
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -353,9 +475,7 @@ footer {
     100% {
       opacity: 1;
     }
-  } 
-  
-  
+  }  
   
   
 
@@ -384,10 +504,30 @@ footer {
         top: 65vh; /* 垂直居中 */
     }
 
-    .content {
-        margin-top: 65%;
+    .content_1{
+        margin-top: 120%; 
     }
-        
+
+    .content_2 img{
+        width: 80%; 
+    }
+
+
+    .container2 {
+        flex-direction: column; /* 改為上下排列 */
+    }
+
+    .image-section,
+    .text-section {
+        flex: none; /* 取消左右比例 */
+        width: 100%; /* 確保區塊寬度填滿整個容器 */
+    }
+
+    p {
+        font-size: .8em;
+        line-height: 1.5;
+        margin: 10%;
+    }
 
     .dropdown-menu {
         position: fixed; /* 固定在畫面右上角 */
@@ -407,25 +547,39 @@ footer {
     .dropdown-menu ul {
         text-align: center;
     }
-
+    
     .word-cloud {
-        width: 40vw;  /* 當螢幕寬度小於 768px 時，橢圓形變大 */
-        height: 30vh; /* 調整高度 */
+        width: 250px; /* 調整寬度 */
+        height: 200px; /* 調整高度 */
+        transform: translate(0, 0); 
     }
 
     .word {
-        font-size: 16px;
+        font-size: 14px;
     }
 
 
     .scroll-indicator {
         margin-top: 50%;
     }
+
     /* 文字樣式 */
     .text {
         font-size: 14px;
     }
     
+    .images {
+        flex-direction: column; /* 小螢幕時，將內容顯示為垂直排列 */
+        gap: 20px;
+    }
+
+    .side-image {
+        max-width: 100%; /* 圖片在小螢幕時調整為全寬 */
+    }
+
+    .middle_text {
+        width: 100%; /* 文字段落在小螢幕時顯示良好 */
+    }
 
 }
 
@@ -448,7 +602,7 @@ footer {
     }
 
 
-    .content {
+    .content_index {
         margin-top: 50%;
     }
 }
@@ -460,7 +614,7 @@ footer {
         padding: 20px;
     }
 
-    .content {
+    .content_index {
         padding: 20px;
     }
 
