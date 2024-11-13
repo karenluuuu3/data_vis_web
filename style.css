@@ -260,7 +260,7 @@ p {
 }
 
 .menu-icon:hover {
-    color: #F20505; 
+    color: #F6633F; 
 }
 
 
@@ -438,7 +438,7 @@ footer {
     width: 35px; 
     height: 35px; 
     border-radius: 50%; 
-    background: linear-gradient(45deg, #F20505, #96D932);
+    background: linear-gradient(45deg, #F6633F, #96D932);
     transform: translate(-50%, -50%); /* 確保游標位於鼠標位置的中心 */
     transition: transform 0.3s ease-out; /* 添加平滑過渡效果 */
 }
