@@ -39,23 +39,106 @@ document.addEventListener("DOMContentLoaded", function() {
 
   
   // word cloud
-  const words = ['Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience'
-    ,'Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience'
-    ,'Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience','Creative', 'Design', 'Technology', 'Innovation', 'Development', 'Art', 'Code', 'Experience'];
+  const words = [
+    "Snow Man", "SixTONES",
+    "Aぇ! group",
+    "WEST.",
+    "なにわ男子",
+    "Hey! Say! JUMP",
+    "NEWS",
+    "SUPER EIGHT(関ジャニ∞)",
+    "King & Prince",
+    "Kis-My-Ft2",
+    "Sexy Zone",
+    "KinKi Kids",
+    "Travis Japan",
+    "ME:I",
+    "IS:SUE",
+    "INI",
+    "JO1",
+    "櫻坂46",
+    "日向坂46",
+    "乃木坂46",
+    "AKB48",
+    "SKE48",
+    "NMB48",
+    "HKT48",
+    "NGT48",
+    "STU48",
+    "モーニング娘。'24",
+    "&TEAM",
+    "ATEEZ",
+    "NiziU",
+    "IVE",
+    "TOMORROW X TOGETHER",
+    "SEVENTEEN",
+    "RIIZE",
+    "V",
+    "JIMIN",
+    "BOYNEXTDOOR",
+    "LE SSERAFIM",
+    "NEXZ",
+    "TREASURE",
+    "aespa",
+    "OCTPATH",
+    "TWICE",
+    "ENHYPEN",
+    "NCT WISH",
+    "NCT DREAM",
+    "NCT 127",
+    "NCT DREAM",
+    "NewJeans",
+    "Kep1er",
+    "ZEROBASEONE",
+    "FANTASTICS from EXILE TRIBE",
+    "BE:FIRST",
+    "timelesz",
+    "OCHA NORMA",
+    "BEYOOOOONDS",
+    "≒JOY",
+    "＝LOVE",
+    "≠ME",
+    "M!LK",
+    "BUDDiiS",
+    "SUPER★DRAGON",
+    "Knight A - 騎士A -",
+    "カラフルダイヤモンド",
+    "竹内 まりや",
+    "西野 カナ",
+    "BUMP OF CHICKEN",
+    "STARTO for you",
+    "米津玄師",
+    "Ado",
+    "Official髭男dism",
+    "ヨルシカ",
+    "エド・シーラン",
+    "槇原 敬之",
+    "Mrs. GREEN APPLE",
+    "稲葉 浩志",
+    "コムドット",
+    "ぼっち・ざ・ろっく！",
+    "宇多田ヒカル",
+    "Mrs. GREEN APPLE",
+    "大滝 詠一",
+    "King Gnu",
+    "メガデス",
+    "Vaundy",
+    "松任谷 由実"
+];
   
     // 定義特殊關鍵字
-  const importantWords = ['Technology', 'Innovation', 'Future'];
+  const importantWords = ['Snow Man', 'Travis Japan', 'NEWS'];
   const wordCloud = document.getElementById('wordCloud');
   const centerX = wordCloud.clientWidth / 1.5;
   const centerY = wordCloud.clientHeight / 1.5;
   const a = centerX; // 橢圓的水平半徑
   const b = centerY; // 橢圓的垂直半徑
-  const minPadding = 15; // 增加文字間距來避免重疊
+  const minPadding = 10; // 增加文字間距來避免重疊
 
   let placedWords = [];
 
   function generateRandomColor() {
-      const colors = ['#96D932', '#F20505']; // 定義兩個顏色
+      const colors = ['#A4F364', '#F6633F']; // 定義兩個顏色
       return colors[Math.floor(Math.random() * colors.length)];
   }
 
@@ -184,4 +267,14 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('beforeunload', () => {
   document.body.style.transition = 'opacity 1s ease-in-out';
   document.body.style.opacity = 0;
+});
+
+
+
+
+const video = document.getElementById('video');
+
+video.addEventListener('mouseover', () => {
+  video.currentTime = 0; // 將影片重設到起始位置
+  video.play(); // 播放影片
 });

@@ -34,18 +34,18 @@
 
 /* 使用 ::selection 改變選取文字的顏色 */
 ::selection {
-    background-color: #96D932;  /* 文字被選取時的背景顏色 */
+    background-color: #A4F364;  /* 文字被選取時的背景顏色 */
     color: #0D0D0D;  /* 文字顏色 */
 }
 
 /* 支援不同瀏覽器的選取效果 */
 ::-moz-selection {
-    background-color: #96D932;
+    background-color: #A4F364;
     color: #0D0D0D;
 }
 
 ::-webkit-selection {
-    background-color: #96D932;
+    background-color: #A4F364;
     color: #0D0D0D;
 }
 
@@ -111,19 +111,21 @@ h2{
 .content_1{
     margin-top: 50%; 
     padding:20px; 
-    background-color: #96D932; 
+    background-color: #A4F364; 
 }
 
 .content_1 p{
     color:#0D0D0D;
     font-size: 18px;
+    margin:0 30% 2% 30%;
+    text-align: left;
 }
 
 .content_2{
     display: flex;
     flex-direction: column; /* 使內容從上到下排列 */
     align-items: center; /* 置中對齊 */
-    text-align: center; /* 文字置中 */
+    text-align: left; /* 文字置中 */
     margin-top: 5%;
 }
 
@@ -131,12 +133,27 @@ h2{
     font-size: 16px;
     line-height: 1.5em;
     margin-bottom: 5%;
+    margin:0 30% 2% 30%;
 }
 
 .content_2 img{
     width: 50%;
     height: auto;
+    border-radius: 2%;
 }
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 使容器高度等於視窗高度 */
+}
+
+video {
+    max-width: 100%; /* 確保影片在小視窗下不會溢出 */
+    max-height: 100%; /* 確保影片高度不會溢出視窗 */
+}
+  
 
   
 .container {
@@ -148,13 +165,14 @@ h2{
 }
 
 .images {
-display: flex;
-flex-wrap: wrap; /* 讓內容在需要時換行 */
-justify-content: space-between;
-align-items: center;
-width: 100%;
-max-width: 1200px;
-gap: 10px; /* 增加間距確保空間 */
+    display: flex;
+    flex-wrap: wrap; /* 讓內容在需要時換行 */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 10px; /* 增加間距確保空間 */
+
 }
 
 .side-image {
@@ -204,7 +222,8 @@ margin: 0 20px; /* 確保文字不貼邊 */
   .image {
     width: 100%; /* 圖片寬度自動調整 */
     margin-bottom: 10px;
-  }
+
+}
   
   .description {
     font-size: 14px; /* 調整文字大小 */
@@ -236,6 +255,7 @@ flex: 2;
 img {
 width: 100%; /* 圖片自適應容器大小 */
 height: auto;
+border-radius: 2%;
 }
 
   
@@ -254,7 +274,7 @@ p {
     font-size: 2rem;
     cursor: pointer;
     z-index: 1000;
-    color: #96D932;
+    color: #A4F364;
     transition: opacity 0.4s ease-in-out; /* 添加過渡效果 */
     transition: color 0.4s ease; /* 漸進的顏色變化 */
 }
@@ -316,7 +336,7 @@ p {
 
 /* Hover effect for menu item text */
 .dropdown-menu ul li a:hover {
-    color: #96D932; 
+    color: #A4F364; 
 }
 
 
@@ -376,7 +396,7 @@ p {
 
 .close-btn:hover::before,
 .close-btn:hover::after {
-    background-color: #96D932; /* 改變筆畫顏色 */
+    background-color: #A4F364; /* 改變筆畫顏色 */
     transition: background-color 0.4s ease-in-out; /* 顏色過渡 */
 }
 
@@ -400,7 +420,7 @@ p {
 }
 
 .word:hover {
-    color: var(--hover-color, #96D932);
+    color: var(--hover-color, #A4F364);
     transform: translate(var(--move-x), var(--move-y)); /* 滑鼠懸停時，文字會根據隨機方向移動 */
     z-index: 1; /* 確保懸停的字會在其他字的上層 */
 }
@@ -438,7 +458,7 @@ footer {
     width: 35px; 
     height: 35px; 
     border-radius: 50%; 
-    background: linear-gradient(45deg, #F6633F, #96D932);
+    background: linear-gradient(45deg, #F6633F, #A4F364);
     transform: translate(-50%, -50%); /* 確保游標位於鼠標位置的中心 */
     transition: transform 0.3s ease-out; /* 添加平滑過渡效果 */
 }
@@ -459,7 +479,7 @@ footer {
   /* 自定義橫線的樣式 */
 .styled-line {
     border: 0;
-    border-top: 2px solid #96D932; /* 番茄紅色的橫線 */
+    border-top: 2px solid #A4F364; /* 番茄紅色的橫線 */
     width: 50%; /* 讓橫線寬度為畫面一半 */
     margin: 20px auto; /* 垂直間隔20px，並且居中 */
     opacity: 0.7; /* 讓橫線有點透明感 */
@@ -476,7 +496,7 @@ footer {
   .text {
     display: block;
     font-size: 18px;
-    color: #96D932;
+    color: #A4F364;
     margin-top: 10px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -503,7 +523,7 @@ footer {
       color: #fff;
     }
     50% {
-      color: #96D932; /* 番茄紅色 */
+      color: #A4F364;
     }
   }
   
@@ -548,10 +568,17 @@ footer {
         margin-top: 120%; 
     }
 
+    .content_2{
+        margin: 5% 10% 0 10%;
+    }
+    
+
     .content_2 img{
         width: 80%; 
+
     }
 
+    
 
     .container2 {
         flex-direction: column; /* 改為上下排列 */

@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&family=Noto+Serif+TC:wght@600&family=Slabo+27px&family=Vollkorn:wght@600&display=swap" rel="stylesheet"><body>
 
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <body>
     <header>
@@ -46,32 +48,39 @@
 
     <div class="content_1">
         <p>
-            日本の音楽市場はどれくらい活発なのか？
-            How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
-            How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
-            How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
-            How active is Japan's music market?
+            2022年の市場規模が20億ドルを超える日本は世界第2位の音楽市場であり、この順位は10年以上続いている。ある人はハイテク大国と謳われる日本が、デジタル音楽のパイオニアになることを期待していたかもしれない。しかし、日本レコード協会の報告によれば、2022年の音楽売上高に占めるフィジカルフォーマットの割合は未だ66％である。
+            
+            With a market size of over $2 billion in 2022, Japan is the second largest music market in the world, a position it has held for over a decade. Some might have expected Japan, touted as a tech powerhouse, to be a pioneer in digital music. However, the Recording Industry Association of Japan reports that physical formats will still account for 66% of music sales in 2022.
         </p>
     </div>
 
-    <div class="word-cloud" id="wordCloud"></div>
+    <!--
+    <div class="word-cloud" id="wordCloud" style="white-space: nowrap;"></div>
+    -->
+    <div class="video-container">
+        <video id="video" width="600" autoplay muted>
+          <source src="./images/wordcloud.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      
 
     <div class="content_2">
         <p>
-            Comparison
+            <p style="font-weight: 800; font-size: 40px;">Comparison</p>
             日本の音楽市場はどれくらい活発なのか？
             How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
             How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
             How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
             How active is Japan's music market?
         </p>
-
         <img src="./images/platinum-3403246_1280.jpg" alt=""/>
     </div>
 
     <div class="content_2">
         <p>
-            Income
+            <p style="font-weight: 800; font-size: 40px;">Income</p>
             日本の音楽市場はどれくらい活発なのか？
             How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
             How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
@@ -85,14 +94,16 @@
     
 
     <div class="content_2">
-        <p style="margin-bottom: -10%;">
-            結論
-            日本の音楽市場はどれくらい活発なのか？
-            How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
-            How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
-            How active is Japan's music market?日本の音楽市場はどれくらい活発なのか？
-            How active is Japan's music market?
+        <p>
+            日本は2023年も世界第2位の音楽市場を維持しており、フィジカルメディアの強さや独自の音楽消費文化がその背景にあります。
+            特に、依然として根強いアイドル文化により、ファンのCD購買意欲が売上を支えています。また、日本のリスナーは海外音楽への興味が比較的少なく、国内アーティストへの支持が強いことが、このポジションを維持する大きな要因となっています。
+            ストリーミングが徐々に重要な収入源となりつつあるものの、人口減少と高齢化が進む中で国内市場の成長には限界が見えています。そのため、今後はグローバルなリスナーをどのように取り込むかが、日本の音楽業界にとって最大の課題となるでしょう。
+        
+            Japan will remain the world's second largest music market in 2023, thanks to its strength in physical media and unique music consumption culture.
+            In particular, sales are driven by fans' desire to purchase CDs, due to the still-deep idol culture. In addition, Japanese listeners are relatively uninterested in overseas music, and their support for domestic artists is a major factor in maintaining this position.
+            Although streaming is gradually becoming an important source of income, the growth of the domestic market is showing limitations amid a declining and aging population. Therefore, the biggest challenge for the Japanese music industry in the future will be how to attract global listeners.
         </p>
+
     </div>
 
 
@@ -108,6 +119,7 @@
     </footer>
 
     <script src="script.js"></script>
+
 
 
 
