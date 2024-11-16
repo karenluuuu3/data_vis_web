@@ -34,190 +34,22 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+  // 獲取按鈕元素
+  const toTopBtn = document.getElementById('toTopBtn');
 
-  
-
-  
-  // word cloud
-  const words = [
-    "Snow Man", "SixTONES",
-    "Aぇ! group",
-    "WEST.",
-    "なにわ男子",
-    "Hey! Say! JUMP",
-    "NEWS",
-    "SUPER EIGHT(関ジャニ∞)",
-    "King & Prince",
-    "Kis-My-Ft2",
-    "Sexy Zone",
-    "KinKi Kids",
-    "Travis Japan",
-    "ME:I",
-    "IS:SUE",
-    "INI",
-    "JO1",
-    "櫻坂46",
-    "日向坂46",
-    "乃木坂46",
-    "AKB48",
-    "SKE48",
-    "NMB48",
-    "HKT48",
-    "NGT48",
-    "STU48",
-    "モーニング娘。'24",
-    "&TEAM",
-    "ATEEZ",
-    "NiziU",
-    "IVE",
-    "TOMORROW X TOGETHER",
-    "SEVENTEEN",
-    "RIIZE",
-    "V",
-    "JIMIN",
-    "BOYNEXTDOOR",
-    "LE SSERAFIM",
-    "NEXZ",
-    "TREASURE",
-    "aespa",
-    "OCTPATH",
-    "TWICE",
-    "ENHYPEN",
-    "NCT WISH",
-    "NCT DREAM",
-    "NCT 127",
-    "NCT DREAM",
-    "NewJeans",
-    "Kep1er",
-    "ZEROBASEONE",
-    "FANTASTICS from EXILE TRIBE",
-    "BE:FIRST",
-    "timelesz",
-    "OCHA NORMA",
-    "BEYOOOOONDS",
-    "≒JOY",
-    "＝LOVE",
-    "≠ME",
-    "M!LK",
-    "BUDDiiS",
-    "SUPER★DRAGON",
-    "Knight A - 騎士A -",
-    "カラフルダイヤモンド",
-    "竹内 まりや",
-    "西野 カナ",
-    "BUMP OF CHICKEN",
-    "STARTO for you",
-    "米津玄師",
-    "Ado",
-    "Official髭男dism",
-    "ヨルシカ",
-    "エド・シーラン",
-    "槇原 敬之",
-    "Mrs. GREEN APPLE",
-    "稲葉 浩志",
-    "コムドット",
-    "ぼっち・ざ・ろっく！",
-    "宇多田ヒカル",
-    "Mrs. GREEN APPLE",
-    "大滝 詠一",
-    "King Gnu",
-    "メガデス",
-    "Vaundy",
-    "松任谷 由実"
-];
-  
-    // 定義特殊關鍵字
-  const importantWords = ['Snow Man', 'Travis Japan', 'NEWS'];
-  const wordCloud = document.getElementById('wordCloud');
-  const centerX = wordCloud.clientWidth / 1.5;
-  const centerY = wordCloud.clientHeight / 1.5;
-  const a = centerX; // 橢圓的水平半徑
-  const b = centerY; // 橢圓的垂直半徑
-  const minPadding = 10; // 增加文字間距來避免重疊
-
-  let placedWords = [];
-
-  function generateRandomColor() {
-      const colors = ['#A4F364', '#F6633F']; // 定義兩個顏色
-      return colors[Math.floor(Math.random() * colors.length)];
-  }
-
-  function getRandomPositionInEllipse(nearCenter = false) {
-    const angle = Math.random() * 2 * Math.PI;
-    const radius = Math.sqrt(Math.random()); // 確保分布均勻
-
-    // 如果是關鍵字，讓它們靠近圓心
-    const x = centerX + (nearCenter ? radius * 0.4 * a : radius * a * Math.cos(angle));
-    const y = centerY + (nearCenter ? radius * 0.4 * b : radius * b * Math.sin(angle));
-
-    return { x, y };
-}
-
-  function isOverlapping(newPos, wordElement) {
-      const wordWidth = wordElement.offsetWidth;
-      const wordHeight = wordElement.offsetHeight;
-
-      for (let i = 0; i < placedWords.length; i++) {
-          const placed = placedWords[i];
-          const distanceX = Math.abs(newPos.x - placed.x);
-          const distanceY = Math.abs(newPos.y - placed.y);
-
-          // 檢查是否有重疊，並考慮字體的寬度與高度
-          if (distanceX < (wordWidth + placed.width) / 2 + minPadding &&
-              distanceY < (wordHeight + placed.height) / 2 + minPadding) {
-              return true; // 發現重疊
-          }
-      }
-      return false;
-  }
-
-  words.forEach((wordText) => {
-      let word = document.createElement('span');
-      word.className = 'word';
-      word.textContent = wordText;
-      word.style.position = 'absolute';
-      wordCloud.appendChild(word);
-
-      let position;
-      let attempts = 0;
-      const nearCenter = importantWords.includes(wordText); // 如果是關鍵字，讓它靠近圓心
-      do {
-          position = getRandomPositionInEllipse(nearCenter);
-          attempts++;
-      } while (isOverlapping(position, word) && attempts < 200); // 增加最多嘗試次數，避免無法放置的情況
-
-      if (attempts < 200) {
-        word.style.left = `${position.x}px`;
-        word.style.top = `${position.y}px`;
-
-        // 如果是關鍵字，將文字設置為粗體並設置顏色
-        if (importantWords.includes(wordText)) {
-            word.style.fontWeight = 'bold';
-            //word.style.color = '#FF5733'; // 特別顏色
-            word.style.fontSize = '30px';  // 增加字型大小
-            
-        } else {
-            const randomColor = generateRandomColor();
-            //word.style.color = randomColor;
-        }
-
-        const randomColor = generateRandomColor();
-        word.style.setProperty('--hover-color', randomColor);
-
-        // 設置滑鼠懸停時的推開動畫
-        const moveX = (Math.random() - 0.5) * 50; // 隨機水平位移
-        const moveY = (Math.random() - 0.5) * 50; // 隨機垂直位移
-        word.style.setProperty('--move-x', `${moveX}px`);
-        word.style.setProperty('--move-y', `${moveY}px`);
-
-        placedWords.push({ x: position.x, y: position.y, width: word.offsetWidth, height: word.offsetHeight });
+  // 當使用者滾動時顯示按鈕
+  window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      toTopBtn.style.display = "block";
     } else {
-          wordCloud.removeChild(word); // 超過嘗試次數則移除無法放置的單字
-      }
-  });
+      toTopBtn.style.display = "none";
+    }
+  };
 
-
-
+  // 點擊按鈕時返回頁面頂部
+  toTopBtn.onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
 
 
@@ -278,3 +110,6 @@ video.addEventListener('mouseover', () => {
   video.currentTime = 0; // 將影片重設到起始位置
   video.play(); // 播放影片
 });
+
+
+
