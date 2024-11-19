@@ -561,10 +561,13 @@ footer {
  /* RWD 調整 */
 /* 手機尺寸 */
 @media screen and (max-width: 600px) {
-
     h2{
         font-size: 2.5vw; /* 設定字型大小相對於視口寬度 */
         top: 65vh; /* 垂直居中 */
+    }
+
+    .content_2 p{
+        margin: 5%;
     }
 
     .content_2 img{
@@ -629,20 +632,12 @@ footer {
         
     }
 
-
-    .content_index {
-        margin-top: 50%;
-    }
 }
 
 /* 桌面尺寸 */
 @media screen and (min-width: 901px) {
     header {
         font-size: 2em;
-        padding: 20px;
-    }
-
-    .content_index {
         padding: 20px;
     }
 
