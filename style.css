@@ -415,22 +415,32 @@ p {
 .to-top {
     display: none; /* 初始不顯示 */
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 5px;
+    right: 5px;
     z-index: 100;
     background-color: transparent;
-    color: #A4F364;
-    padding: 10px 15px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
   }
-  
-  .to-top:hover {
-    background-color: #F6633F;
+
+  .arrow-circle-up circle,
+  .arrow-circle-up path,
+  .arrow-circle-up line{
+    transition: stroke 0.4s ease-in-out;
   }
   
+  .to-top:hover .arrow-circle-up circle,
+  .to-top:hover .arrow-circle-up line{
+    stroke: #F6633F;
+  }
+
+  .to-top:hover .arrow-circle-up path{
+    fill: #F6633F;
+  }
+  
+
+  /*view more*/
   .svg-text-container {
     display: flex;
     align-items: center; /* 垂直居中對齊 */
