@@ -422,11 +422,6 @@ p {
     border: none;
     cursor: pointer;
     font-size: 16px;
-  }
-
-  .arrow-circle-up circle,
-  .arrow-circle-up path,
-  .arrow-circle-up line{
     transition: stroke 0.4s ease-in-out;
   }
   
